@@ -35,7 +35,10 @@
                    (= x 2)) (vals (frequencies (map rank hand))))) 2))
 
 (defn straight? [hand]
-  nil)
+  (= (sort (map rank hand)) (range (apply min (map rank hand)) (+ 1 (apply max (map rank hand))))))
+
+;(defn straight? [hand]
+ ; (sort (map rank hand)))
 
 (defn straight-flush? [hand]
   nil)
