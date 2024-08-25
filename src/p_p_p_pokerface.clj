@@ -31,7 +31,8 @@
        (contains? (set (vals (frequencies (map rank hand)))) 3)))
 
 (defn two-pairs? [hand]
-  nil)
+  (= (count (filter (fn [x]
+                   (= x 2)) (vals (frequencies (map rank hand))))) 2))
 
 (defn straight? [hand]
   nil)
