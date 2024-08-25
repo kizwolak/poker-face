@@ -18,16 +18,17 @@
   (contains? (set (vals (frequencies (map rank hand)))) 2))
 
 (defn three-of-a-kind? [hand]
-  nil)
+  (contains? (set (vals (frequencies (map rank hand)))) 3))
 
 (defn four-of-a-kind? [hand]
-  nil)
+  (contains? (set (vals (frequencies (map rank hand)))) 4))
 
 (defn flush? [hand]
-  nil)
+  (contains? (set (vals (frequencies (map suit hand))))  5))
 
 (defn full-house? [hand]
-  nil)
+  (and (contains? (set (vals (frequencies (map rank hand)))) 2)
+       (contains? (set (vals (frequencies (map rank hand)))) 3)))
 
 (defn two-pairs? [hand]
   nil)
