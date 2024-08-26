@@ -60,7 +60,7 @@
  ; (sort (map rank hand)))
 
 (defn straight-flush? [hand]
-  nil)
+  (and (straight? hand) (flush? hand)))
 
 (defn value [hand]
   nil)
