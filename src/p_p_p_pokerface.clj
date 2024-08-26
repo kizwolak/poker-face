@@ -34,8 +34,27 @@
   (= (count (filter (fn [x]
                    (= x 2)) (vals (frequencies (map rank hand))))) 2))
 
+;(defn straight? [hand]
+ ; (or (= (sort (map rank hand))
+  ;       (range (apply min (map rank hand))
+   ;             (+ 1 (apply max (map rank hand))))))
+  
+    ;  (= (sort (replace {14 1} (map rank hand)))
+     ;    (range (apply min (replace {14 1} (map rank hand)))
+      ;          (+ 1 (apply max (replace {14 1} (map rank hand)))))))
+
 (defn straight? [hand]
-  (= (sort (map rank hand)) (range (apply min (map rank hand)) (+ 1 (apply max (map rank hand))))))
+  (or 
+    (= (sort (map rank hand)) 
+       (range (apply min (map rank hand)) 
+              (inc (apply max (map rank hand)))))
+    
+    (= (sort (replace {14 1} (map rank hand))) 
+       (range (apply min (replace {14 1} (map rank hand))) 
+              (inc (apply max (replace {14 1} (map rank hand))))))))
+
+  
+  ;(= (sort (map rank hand)) (range (apply min (map rank hand)) (+ 1 (apply max (map rank hand))))))
 
 ;(defn straight? [hand]
  ; (sort (map rank hand)))
